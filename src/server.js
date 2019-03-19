@@ -5,6 +5,9 @@ const path = require('path');
 const geoCode = require('./utils/geocodeAddress');
 const weather = require('./utils/weather');
 
+//set the port according to heroku port or if nothing use 3000
+const port = process.env.PORT || 3000;
+
 //call express in a variable
 var app = express();
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -98,5 +101,5 @@ app.get('/bad',(req,res)=>{
     });
 });
 
-app.listen(3000);
-console.log("server run at port 3000");
+app.listen(port);
+console.log(`server run at port ${port}`);

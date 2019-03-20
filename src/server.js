@@ -68,7 +68,7 @@ app.get('/weather',(req,res)=>{
                 103: err
             });
         }else{
-            console.log(result);
+            //console.log(result);
             weather.getWeather(result.latitude,result.longitude,(error,result)=>{
                 if(error){
                     console.log("error getting weather forecast");
@@ -76,10 +76,11 @@ app.get('/weather',(req,res)=>{
                         103:error
                     });
                 }else{
-                    console.log(result);
+                    //console.log(result);
                     res.send({
                         address: req.query.address,
-                        weather:result.current
+                        weather:result.current,
+                        summary: result.summary
                     });
                 }
             })

@@ -9,9 +9,11 @@ var getWeather = (lat,long,callback) =>{
             callback('unable to connect to weather API server');
             //console.log('unable to connect to weather API server')
         }else if (response.statusCode === 200){     
+            console.log(body);
             const result = {
                 current: body.currently.temperature,
-                feelsLike: body.currently.apparentTemperature
+                feelsLike: body.currently.apparentTemperature,
+                summary: body.currently.summary
             }
             callback(undefined,result);
         }else{
